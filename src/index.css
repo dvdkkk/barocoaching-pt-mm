@@ -1,0 +1,547 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    letter-spacing: -0.022em;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "cv05", "cv08", "cv09", "tnum";
+  }
+
+  body {
+    font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+    line-height: 1.65;
+    color: #1e293b;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.035em;
+    line-height: 1.32;
+    word-break: keep-all;
+  }
+
+  p {
+    word-break: keep-all;
+    line-height: 1.7;
+    letter-spacing: -0.018em;
+  }
+
+  button, input, select, textarea {
+    font-family: var(--font-sans);
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Custom subtle scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@keyframes scrollVerticalTicker {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-vertical-ticker {
+  animation: scrollVerticalTicker 200s linear infinite;
+  will-change: transform;
+}
+
+.animate-vertical-ticker:hover {
+  animation-play-state: paused;
+}
+
+@keyframes flowUpward {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-flow-up {
+  display: flex;
+  flex-direction: column;
+  animation: flowUpward 26s linear infinite;
+  will-change: transform;
+}
+
+.animate-flow-up-slow {
+  display: flex;
+  flex-direction: column;
+  animation: flowUpward 38s linear infinite;
+  will-change: transform;
+}
+
+.animate-flow-up-fast {
+  display: flex;
+  flex-direction: column;
+  animation: flowUpward 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-flow-up:hover,
+.animate-flow-up-slow:hover,
+.animate-flow-up-fast:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-left-slow {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 96s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeRight 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-left-slow:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* 7-second periodic ping & pulse highlight effects */
+@keyframes ping7s {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  15% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+  16%, 100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes ping7sDelayed {
+  0%, 3% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.6;
+  }
+  20% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+  21%, 100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse7s {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4), 0 8px 10px -6px rgba(37, 99, 235, 0.3);
+  }
+  6% {
+    transform: scale(1.06);
+    box-shadow: 0 20px 35px -5px rgba(37, 99, 235, 0.6), 0 12px 18px -6px rgba(37, 99, 235, 0.5);
+  }
+  12% {
+    transform: scale(1.01);
+  }
+  16% {
+    transform: scale(1.04);
+  }
+  22% {
+    transform: scale(1);
+  }
+}
+
+.animate-ping-7s {
+  animation: ping7s 7s cubic-bezier(0, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-ping-7s-delayed {
+  animation: ping7sDelayed 7s cubic-bezier(0, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-pulse-7s {
+  animation: pulse7s 7s ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+
+/* ==========================================================================
+   Page Theme Scopes (/resume.html, /public.html, /finance.html, /bio.html)
+   ========================================================================== */
+
+/* 1. Resume Page: Indigo Theme (#4f46e5) */
+.theme-resume .text-blue-600,
+.theme-resume .text-blue-700,
+.theme-resume .text-blue-800,
+.theme-resume a.text-blue-600,
+.theme-resume strong.text-blue-600,
+.theme-resume span.text-blue-600,
+.theme-resume span.text-blue-700 {
+  color: #4f46e5 !important;
+}
+.theme-resume .text-blue-400,
+.theme-resume .text-blue-500,
+.theme-resume .text-blue-300,
+.theme-resume .text-blue-200 {
+  color: #818cf8 !important;
+}
+.theme-resume .bg-blue-600,
+.theme-resume .bg-blue-700,
+.theme-resume .bg-blue-500 {
+  background-color: #4f46e5 !important;
+}
+.theme-resume .hover\:bg-blue-700:hover,
+.theme-resume .hover\:bg-blue-600:hover {
+  background-color: #4338ca !important;
+}
+.theme-resume .bg-blue-50,
+.theme-resume .bg-blue-50\/90,
+.theme-resume .bg-blue-50\/80,
+.theme-resume .bg-blue-50\/70 {
+  background-color: #eef2ff !important;
+}
+.theme-resume .bg-blue-100 {
+  background-color: #e0e7ff !important;
+}
+.theme-resume .bg-blue-500\/20,
+.theme-resume .bg-blue-500\/30,
+.theme-resume .bg-blue-900\/30 {
+  background-color: rgba(79, 70, 229, 0.2) !important;
+}
+.theme-resume .border-blue-200,
+.theme-resume .border-blue-100,
+.theme-resume .border-blue-300,
+.theme-resume .border-blue-200\/60,
+.theme-resume .border-blue-200\/70,
+.theme-resume .border-blue-200\/80 {
+  border-color: #c7d2fe !important;
+}
+.theme-resume .border-blue-500,
+.theme-resume .border-blue-600,
+.theme-resume .border-blue-500\/30 {
+  border-color: #4f46e5 !important;
+}
+.theme-resume .hover\:border-blue-400\/80:hover {
+  border-color: #818cf8 !important;
+}
+.theme-resume .decoration-blue-500 {
+  text-decoration-color: #6366f1 !important;
+}
+.theme-resume .from-blue-600,
+.theme-resume .from-blue-500 {
+  --tw-gradient-from: #4f46e5 var(--tw-gradient-from-position) !important;
+}
+.theme-resume .to-blue-700,
+.theme-resume .to-indigo-600,
+.theme-resume .to-indigo-700 {
+  --tw-gradient-to: #4338ca var(--tw-gradient-to-position) !important;
+}
+
+/* 2. Public Page: Emerald Theme (#059669) */
+.theme-public .text-blue-600,
+.theme-public .text-blue-700,
+.theme-public .text-blue-800,
+.theme-public a.text-blue-600,
+.theme-public strong.text-blue-600,
+.theme-public span.text-blue-600,
+.theme-public span.text-blue-700 {
+  color: #059669 !important;
+}
+.theme-public .text-blue-400,
+.theme-public .text-blue-500,
+.theme-public .text-blue-300,
+.theme-public .text-blue-200 {
+  color: #34d399 !important;
+}
+.theme-public .bg-blue-600,
+.theme-public .bg-blue-700,
+.theme-public .bg-blue-500 {
+  background-color: #059669 !important;
+}
+.theme-public .hover\:bg-blue-700:hover,
+.theme-public .hover\:bg-blue-600:hover {
+  background-color: #047857 !important;
+}
+.theme-public .bg-blue-50,
+.theme-public .bg-blue-50\/90,
+.theme-public .bg-blue-50\/80,
+.theme-public .bg-blue-50\/70 {
+  background-color: #ecfdf5 !important;
+}
+.theme-public .bg-blue-100 {
+  background-color: #d1fae5 !important;
+}
+.theme-public .bg-blue-500\/20,
+.theme-public .bg-blue-500\/30,
+.theme-public .bg-blue-900\/30 {
+  background-color: rgba(5, 150, 105, 0.2) !important;
+}
+.theme-public .border-blue-200,
+.theme-public .border-blue-100,
+.theme-public .border-blue-300,
+.theme-public .border-blue-200\/60,
+.theme-public .border-blue-200\/70,
+.theme-public .border-blue-200\/80 {
+  border-color: #a7f3d0 !important;
+}
+.theme-public .border-blue-500,
+.theme-public .border-blue-600,
+.theme-public .border-blue-500\/30 {
+  border-color: #059669 !important;
+}
+.theme-public .hover\:border-blue-400\/80:hover {
+  border-color: #34d399 !important;
+}
+.theme-public .decoration-blue-500 {
+  text-decoration-color: #10b981 !important;
+}
+.theme-public .from-blue-600,
+.theme-public .from-blue-500 {
+  --tw-gradient-from: #059669 var(--tw-gradient-from-position) !important;
+}
+.theme-public .to-blue-700,
+.theme-public .to-indigo-600,
+.theme-public .to-indigo-700 {
+  --tw-gradient-to: #047857 var(--tw-gradient-to-position) !important;
+}
+
+/* Public Page Target Audience Card 1: High-Contrast Background & Crisp White Text */
+.theme-public #target-audience-section .grid > div:nth-child(1) {
+  background: linear-gradient(135deg, #0f172a 0%, #064e3b 100%) !important;
+  border-color: rgba(52, 211, 153, 0.4) !important;
+  color: #ffffff !important;
+}
+.theme-public #target-audience-section .grid > div:nth-child(1) p {
+  color: #ffffff !important;
+}
+
+/* 3. Finance Page: Amber Theme (#d97706) */
+.theme-finance .text-blue-600,
+.theme-finance .text-blue-700,
+.theme-finance .text-blue-800,
+.theme-finance a.text-blue-600,
+.theme-finance strong.text-blue-600,
+.theme-finance span.text-blue-600,
+.theme-finance span.text-blue-700 {
+  color: #d97706 !important;
+}
+.theme-finance .text-blue-400,
+.theme-finance .text-blue-500,
+.theme-finance .text-blue-300,
+.theme-finance .text-blue-200 {
+  color: #fbbf24 !important;
+}
+.theme-finance .bg-blue-600,
+.theme-finance .bg-blue-700,
+.theme-finance .bg-blue-500 {
+  background-color: #d97706 !important;
+}
+.theme-finance .hover\:bg-blue-700:hover,
+.theme-finance .hover\:bg-blue-600:hover {
+  background-color: #b45309 !important;
+}
+.theme-finance .bg-blue-50,
+.theme-finance .bg-blue-50\/90,
+.theme-finance .bg-blue-50\/80,
+.theme-finance .bg-blue-50\/70 {
+  background-color: #fffbeb !important;
+}
+.theme-finance .bg-blue-100 {
+  background-color: #fef3c7 !important;
+}
+.theme-finance .bg-blue-500\/20,
+.theme-finance .bg-blue-500\/30,
+.theme-finance .bg-blue-900\/30 {
+  background-color: rgba(217, 119, 6, 0.2) !important;
+}
+.theme-finance .border-blue-200,
+.theme-finance .border-blue-100,
+.theme-finance .border-blue-300,
+.theme-finance .border-blue-200\/60,
+.theme-finance .border-blue-200\/70,
+.theme-finance .border-blue-200\/80 {
+  border-color: #fde68a !important;
+}
+.theme-finance .border-blue-500,
+.theme-finance .border-blue-600,
+.theme-finance .border-blue-500\/30 {
+  border-color: #d97706 !important;
+}
+.theme-finance .hover\:border-blue-400\/80:hover {
+  border-color: #fbbf24 !important;
+}
+.theme-finance .decoration-blue-500 {
+  text-decoration-color: #f59e0b !important;
+}
+.theme-finance .from-blue-600,
+.theme-finance .from-blue-500 {
+  --tw-gradient-from: #d97706 var(--tw-gradient-from-position) !important;
+}
+.theme-finance .to-blue-700,
+.theme-finance .to-indigo-600,
+.theme-finance .to-indigo-700 {
+  --tw-gradient-to: #b45309 var(--tw-gradient-to-position) !important;
+}
+
+/* Finance Page Target Audience Card 1: High-Contrast Background & Crisp White Text */
+.theme-finance #target-audience-section .grid > div:nth-child(1) {
+  background: linear-gradient(135deg, #0f172a 0%, #78350f 100%) !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
+  color: #ffffff !important;
+}
+.theme-finance #target-audience-section .grid > div:nth-child(1) p {
+  color: #ffffff !important;
+}
+
+/* 4. Bio Page: Teal Theme (#0d9488) */
+.theme-bio .text-blue-600,
+.theme-bio .text-blue-700,
+.theme-bio .text-blue-800,
+.theme-bio a.text-blue-600,
+.theme-bio strong.text-blue-600,
+.theme-bio span.text-blue-600,
+.theme-bio span.text-blue-700 {
+  color: #0d9488 !important;
+}
+.theme-bio .text-blue-400,
+.theme-bio .text-blue-500,
+.theme-bio .text-blue-300,
+.theme-bio .text-blue-200 {
+  color: #2dd4bf !important;
+}
+.theme-bio .bg-blue-600,
+.theme-bio .bg-blue-700,
+.theme-bio .bg-blue-500 {
+  background-color: #0d9488 !important;
+}
+.theme-bio .hover\:bg-blue-700:hover,
+.theme-bio .hover\:bg-blue-600:hover {
+  background-color: #0f766e !important;
+}
+.theme-bio .bg-blue-50,
+.theme-bio .bg-blue-50\/90,
+.theme-bio .bg-blue-50\/80,
+.theme-bio .bg-blue-50\/70 {
+  background-color: #f0fdfa !important;
+}
+.theme-bio .bg-blue-100 {
+  background-color: #ccfbf1 !important;
+}
+.theme-bio .bg-blue-500\/20,
+.theme-bio .bg-blue-500\/30,
+.theme-bio .bg-blue-900\/30 {
+  background-color: rgba(13, 148, 136, 0.2) !important;
+}
+.theme-bio .border-blue-200,
+.theme-bio .border-blue-100,
+.theme-bio .border-blue-300,
+.theme-bio .border-blue-200\/60,
+.theme-bio .border-blue-200\/70,
+.theme-bio .border-blue-200\/80 {
+  border-color: #99f6e4 !important;
+}
+.theme-bio .border-blue-500,
+.theme-bio .border-blue-600,
+.theme-bio .border-blue-500\/30 {
+  border-color: #0d9488 !important;
+}
+.theme-bio .hover\:border-blue-400\/80:hover {
+  border-color: #2dd4bf !important;
+}
+.theme-bio .decoration-blue-500 {
+  text-decoration-color: #14b8a6 !important;
+}
+.theme-bio .from-blue-600,
+.theme-bio .from-blue-500 {
+  --tw-gradient-from: #0d9488 var(--tw-gradient-from-position) !important;
+}
+.theme-bio .to-blue-700,
+.theme-bio .to-indigo-600,
+.theme-bio .to-indigo-700 {
+  --tw-gradient-to: #0f766e var(--tw-gradient-to-position) !important;
+}
+
+@keyframes marqueeRtl {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-rtl {
+  display: flex;
+  width: max-content;
+  animation: marqueeRtl 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-rtl:hover {
+  animation-play-state: paused;
+}
+
+

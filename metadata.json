@@ -1,0 +1,8 @@
+{
+  "name": "바로코칭-홈페이지-남모미",
+  "description": "Imported from GitHub: dvdkkk/barocoaching-pt",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

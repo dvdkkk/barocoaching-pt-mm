@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/resume", "destination": "/resume.html" },
+    { "source": "/major", "destination": "/major.html" },
+    { "source": "/public", "destination": "/public.html" },
+    { "source": "/finance", "destination": "/finance.html" },
+    { "source": "/bio", "destination": "/bio.html" },
+    { "source": "/coach", "destination": "/coach.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
